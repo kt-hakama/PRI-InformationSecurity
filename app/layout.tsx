@@ -5,7 +5,7 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: '情報セキュリティ危険予知トレーニング',
+  title: 'プロアクティブ・リスクインサイト：情報セキュリティ危険予知トレーニング',
   description: '情報セキュリティの危険ポイントを学習するトレーニングアプリケーション',
 };
 

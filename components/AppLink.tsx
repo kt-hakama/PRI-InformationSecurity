@@ -1,6 +1,5 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { getRelativePath } from '@/lib/relative-path';
 
@@ -11,8 +10,9 @@ type AppLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> & {
 };
 
 /**
- * file:// で開いたときは相対パスの <a> にし、通常は Next.js の Link を使う。
- * これで index.html を直接開いてもシナリオリンクが動く。
+ * 静的エクスポート環境用のリンクコンポーネント。
+ * file:// では相対パス、Web では絶対パスの <a> タグを使用する。
+ * これにより、index.html を直接開いても、静的ホスティングでも正しく動作する。
  */
 export default function AppLink({ href, children, className, ...rest }: AppLinkProps) {
   const pathname = usePathname();
@@ -31,9 +31,11 @@ export default function AppLink({ href, children, className, ...rest }: AppLinkP
     );
   }
 
+  // 静的エクスポート環境では Next.js Link ではなく通常の <a> タグを使用
+  // これによりフルページ遷移となり、クライアント側の例外を回避できる
   return (
-    <Link href={href} className={className} {...rest}>
+    <a href={href} className={className} {...rest}>
       {children}
-    </Link>
+    </a>
   );
 }
