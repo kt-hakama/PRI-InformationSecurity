@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import AppLink from '@/components/AppLink';
 import ScenarioCard from '@/components/ScenarioCard';
 import DangerPointChecklist from '@/components/DangerPointChecklist';
@@ -10,7 +10,6 @@ import { useLanguage } from '@/context/LanguageContext';
 import { getRelativePath } from '@/lib/relative-path';
 
 export default function TrainingPageClient({ id }: { id: string }) {
-  const router = useRouter();
   const pathname = usePathname();
   const { lang, t } = useLanguage();
   const scenario = getScenarioById(id, lang);
@@ -37,7 +36,8 @@ export default function TrainingPageClient({ id }: { id: string }) {
     if (isFileProtocol) {
       window.location.href = getRelativePath(currentPath || pathname || `/training/${id}`, `/result/${scenario.id}`, true);
     } else {
-      router.push(`/result/${scenario.id}`);
+      // 静的エクスポート環境では router.push() がクライアントエラーを起こすため、フルページ遷移を使用
+      window.location.href = `/result/${scenario.id}`;
     }
   };
 
