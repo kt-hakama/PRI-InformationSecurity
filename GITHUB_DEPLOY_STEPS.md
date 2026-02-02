@@ -7,23 +7,23 @@ GitHub の登録が完了したあと、リポジトリへコードを push し�
 ## ステップ1：GitHub にリポジトリを作る
 
 1. **https://github.com/new** を開く。
-2. **Repository name** に名前を入力（例: `KYTtraining` または `kyt-training`）。
+2. **Repository name** に名前を入力（例: `RFtraining` または `rf-training`）。
 3. **Public** を選択。
 4. **「Add a README file」にはチェックを入れない**（すでにローカルにプロジェクトがあるため）。
 5. **Create repository** をクリック。
 6. 作成後、表示される **リポジトリの URL** を控える。  
-   例: `https://github.com/あなたのユーザー名/KYTtraining.git`
+   例: `https://github.com/あなたのユーザー名/RFtraining.git`
 
 ---
 
 ## ステップ2：プロジェクトを GitHub に push する
 
-プロジェクトのフォルダ（`KYTtraining` がある場所）で、ターミナル（PowerShell やコマンドプロンプト）を開き、次を**順番に**実行する。
+プロジェクトのフォルダ（`RFtraining` がある場所）で、ターミナル（PowerShell やコマンドプロンプト）を開き、次を**順番に**実行する。
 
 ### 2-1. プロジェクトのフォルダに移動
 
 ```bash
-cd c:\Users\yas48\Documents\_CURSOR\KYTtraining
+cd c:\Users\yas48\Documents\_CURSOR\RFtraining
 ```
 
 （パスは実際のプロジェクトの場所に合わせて変更してください。）
@@ -46,7 +46,7 @@ git status
 `.gitignore` により `node_modules` や `.next`、`out` は追加されません。問題なければ:
 
 ```bash
-git commit -m "Initial commit: KYT training app"
+git commit -m "Initial commit: RF training app"
 ```
 
 ### 2-4. メインブランチ名を main にする
@@ -60,13 +60,13 @@ git branch -M main
 **`あなたのユーザー名` と `リポジトリ名` を、ステップ1で作ったリポジトリに合わせて書き換えてください。**
 
 ```bash
-git remote add origin https://github.com/あなたのユーザー名/KYTtraining.git
+git remote add origin https://github.com/あなたのユーザー名/RFtraining.git
 ```
 
 すでに `origin` がある場合は、次のように変更できます。
 
 ```bash
-git remote set-url origin https://github.com/あなたのユーザー名/KYTtraining.git
+git remote set-url origin https://github.com/あなたのユーザー名/RFtraining.git
 ```
 
 ### 2-6. プッシュする
@@ -93,14 +93,14 @@ GitHub にコードが上がったあと、**どちらか一方**の方法でデ
 1. **https://www.netlify.com/** にアクセスし、ログイン。
 2. **「Add new site」→「Import an existing project」** をクリック。
 3. **「Deploy with GitHub」** を選び、GitHub の認証を許可する。
-4. **リポジトリ一覧からこのプロジェクト（例: KYTtraining）を選択**。
+4. **リポジトリ一覧からこのプロジェクト（例: RFtraining）を選択**。
 5. **Build settings** を次のように設定する。
    - **Branch to deploy:** `main`
    - **Build command:** `npm run build`
    - **Publish directory:** `out`
 6. **「Deploy site」** をクリック。
 7. ビルドが終わると、**https://ランダムな名前.netlify.app** のような URL で公開されます。
-8. （任意）「Site settings」→「Change site name」で名前を変更可能（例: `kyt-training` → `https://kyt-training.netlify.app`）。
+8. （任意）「Site settings」→「Change site name」で名前を変更可能（例: `rf-training` → `https://rf-training.netlify.app`）。
 
 **以降:** コードを直したら `git add .` → `git commit -m "メッセージ"` → `git push` するだけで、Netlify が自動で再ビルド・再デプロイします。
 

@@ -6,7 +6,7 @@
 
 ## 1. アプリ概要
 
-- **名称:** 情報セキュリティ危険予知トレーニング（Proactive Risk Insight Training for Information Security）
+- **名称:** 情報セキュリティ危険予知トレーニング（Proactive Risk Insight - Risk Foresight Training (RFT) for Information Security。Proactive Risk Insight＝サービス名、Risk Foresight Training (RFT)＝トレーニング名）
 - **種別:** 静的 Web アプリ（SPA 風だが、ページごとに静的 HTML が生成される）
 - **用途:** シナリオを選び、危険ポイントをチェックして回答し、結果・解説を表示する教育用ツール
 - **データ:** 回答はブラウザの `sessionStorage` のみ。サーバーへの送信・DB なし

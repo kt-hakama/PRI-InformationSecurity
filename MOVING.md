@@ -12,7 +12,7 @@ Windows や iCloud Drive 上でビルドエラー（EINVAL / readlink など）�
 
 ### 2. 移動するフォルダ
 
-- **プロジェクトのルートフォルダ全体**（例: `KYTtraining`）をそのまま移動する
+- **プロジェクトのルートフォルダ全体**（例: `RFtraining`）をそのまま移動する
 - 中身をバラバラにせず、**1つのフォルダごと** 移動する
 
 ### 3. 移動しなくてよいもの（移動後に作り直せる）
@@ -32,8 +32,8 @@ Windows や iCloud Drive 上でビルドエラー（EINVAL / readlink など）�
 
 ## 推奨する移動先（Windows）
 
-- **`C:\Users\あなたのユーザー名\Documents\KYTtraining`** など、**ローカルディスク（C:）のドキュメントなど**
-- **`C:\dev\KYTtraining`** のように、iCloud と関係ないフォルダ
+- **`C:\Users\あなたのユーザー名\Documents\RFtraining`** など、**ローカルディスク（C:）のドキュメントなど**
+- **`C:\dev\RFtraining`** のように、iCloud と関係ないフォルダ
 - **OneDrive の同期フォルダ** も、同期の仕方によっては `.next` で同様の不具合が出ることがあるため、**同期外のフォルダ** の方が安全
 
 ---
@@ -42,14 +42,14 @@ Windows や iCloud Drive 上でビルドエラー（EINVAL / readlink など）�
 
 ### 方法A: フォルダごとコピー（安全）
 
-1. **`KYTtraining` フォルダ全体** を、エクスプローラーでコピー（Ctrl+C）
+1. **`RFtraining` フォルダ全体** を、エクスプローラーでコピー（Ctrl+C）
 2. 移動先（例: `C:\dev\`）に貼り付け（Ctrl+V）
 3. 問題なければ、元の場所（iCloud Drive 内）のフォルダは **後から** 削除する
 
 ### 方法B: 軽くしてから移動（node_modules を渡さない）
 
 1. 元のプロジェクトで **`node_modules`** と **`.next`** を削除
-2. **`KYTtraining` フォルダ** を移動先にコピーまたは移動
+2. **`RFtraining` フォルダ** を移動先にコピーまたは移動
 3. 移動先で **ターミナルを開き**、プロジェクトフォルダに移動してから:
    ```powershell
    npm install
@@ -61,11 +61,11 @@ Windows や iCloud Drive 上でビルドエラー（EINVAL / readlink など）�
 ## 移動後にすること
 
 1. **Cursor などでフォルダを開き直す**  
-   「ファイル → フォルダーを開く」で、**移動先の** `KYTtraining` を指定する
+   「ファイル → フォルダーを開く」で、**移動先の** `RFtraining` を指定する
 
 2. **ターミナルで移動先に移動**
    ```powershell
-   cd C:\dev\KYTtraining
+   cd C:\dev\RFtraining
    ```
    （実際のパスに合わせて変更）
 
@@ -100,7 +100,7 @@ Windows や iCloud Drive 上でビルドエラー（EINVAL / readlink など）�
 
 | 項目 | 内容 |
 |------|------|
-| 移動するもの | プロジェクトのルートフォルダ（`KYTtraining`）全体 |
+| 移動するもの | プロジェクトのルートフォルダ（`RFtraining`）全体 |
 | 移動前に | エディタ・サーバーを終了し、必要なら `node_modules` と `.next` を削除 |
 | 移動先 | iCloud / OneDrive の影響が少ないローカルフォルダ（例: `C:\dev\`） |
 | 移動後 | `npm install`（削除した場合）、`npm run build`、`npm run dev` で動作確認 |

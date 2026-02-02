@@ -3,7 +3,7 @@
 import { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { Lang, getTranslations } from '@/lib/translations';
 
-const STORAGE_KEY = 'kyt-lang';
+const STORAGE_KEY = 'rf-lang';
 
 type LanguageContextType = {
   lang: Lang;

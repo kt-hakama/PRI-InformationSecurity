@@ -37,8 +37,8 @@
 4. しばらくするとデプロイが完了し、**https://ランダムな名前.netlify.app** のような URL が表示されます。
 
 5. （任意）サイト名を変更したい場合  
-   「Site settings」→「Change site name」で、例: `kyt-training` にすると  
-   **https://kyt-training.netlify.app** になります。
+   「Site settings」→「Change site name」で、例: `rf-training` にすると  
+   **https://rf-training.netlify.app** になります。
 
 ### 更新するとき
 
@@ -60,7 +60,7 @@
 ### 手順
 
 1. **GitHub にリポジトリを作成**
-   - https://github.com/new で新規リポジトリ作成（例: `kyt-training`）。
+   - https://github.com/new で新規リポジトリ作成（例: `rf-training`）。
 
 2. **プロジェクトを push**（まだの場合）
    ```bash
@@ -68,7 +68,7 @@
    git add .
    git commit -m "Initial commit"
    git branch -M main
-   git remote add origin https://github.com/あなたのユーザー名/kyt-training.git
+   git remote add origin https://github.com/あなたのユーザー名/rf-training.git
    git push -u origin main
    ```
 

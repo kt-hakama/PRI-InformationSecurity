@@ -49,8 +49,14 @@ export default function Home() {
             {t.betaLabel}
           </span>
         </div>
-        <p className="text-sm text-amber-800/90 mb-4">
+        <p className="text-sm text-amber-800/90 mb-6">
           {t.betaNotice}
+        </p>
+        <h2 className="text-2xl font-bold text-gray-900 mb-2">
+          {t.catchCopy}
+        </h2>
+        <p className="text-base text-gray-600 leading-relaxed mb-6">
+          {t.subCopy}
         </p>
         <p className="text-xl font-semibold text-gray-800 leading-relaxed mb-6">
           {t.welcomeDesc}
