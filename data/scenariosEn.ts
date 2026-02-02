@@ -243,12 +243,12 @@ You are wondering whether it is safe to provide the list as planned.
   ]
 };
 
-// ========== Hard scenarios (advanced versions of each theme) ==========
+// ========== Challenge scenarios (advanced versions of each theme) ==========
 
 export const sampleScenario001HardEn: Scenario = {
   id: 'scenario-001-hard',
   difficulty: 'hard',
-  title: 'Incoming email from external sender (Advanced)',
+  title: 'Incoming email from external sender (Challenge)',
   description: 'An email that appears to be from a vendor has arrived. The tactics are more sophisticated than the easy version. Identify the risk points.',
   situation: `
 On Monday morning, your inbox contains an unread HR notice that was circulated: "Mr. Yamada at our vendor Partner Co. left the company as of yesterday." You have not yet read it.
@@ -320,7 +320,7 @@ You are focused on the "Important" subject and the deadline and are about to ope
 export const sampleScenario002HardEn: Scenario = {
   id: 'scenario-002-hard',
   difficulty: 'hard',
-  title: 'Working while on a business trip (Advanced)',
+  title: 'Working while on a business trip (Challenge)',
   description: 'You are working from a hotel on a business trip. Risks can exist even in seemingly secure environments. Identify the risk points.',
   situation: `
 You are staying at a hotel on a business trip and need to do a final check on your presentation for tomorrow.
@@ -372,7 +372,7 @@ You are short on time and are about to click Print with the presentation open fr
 export const sampleScenario003HardEn: Scenario = {
   id: 'scenario-003-hard',
   difficulty: 'hard',
-  title: 'Cloud service adoption and sharing data with a vendor (Advanced)',
+  title: 'Cloud service adoption and sharing data with a vendor (Challenge)',
   description: 'Cloud and vendor arrangements are in place. Look for gaps in the contract and operations. Identify the risk points.',
   situation: `
 The cloud file-sharing service (vendor A) contract is signed, and customer master data is shared with vendor B via encrypted USB and an NDA.
@@ -427,7 +427,7 @@ You are wondering whether these changes are safe to adopt.
 export const sampleScenario004HardEn: Scenario = {
   id: 'scenario-004-hard',
   difficulty: 'hard',
-  title: 'Sharing a personal information list with a vendor (Advanced)',
+  title: 'Sharing a personal information list with a vendor (Challenge)',
   description: 'List sharing is now done via a secure channel and contracts. Identify the more subtle risk points.',
   situation: `
 Personal data lists are now shared with vendor C via a dedicated secure file transfer service, with outsourcing, confidentiality, and personal data handling agreements in place. The list is limited to name, address, and delivery details needed for DM distribution.
