@@ -7,10 +7,12 @@ import type { Scenario } from '@/types';
 
 function ScenarioCard({
   scenario,
+  sequenceNumber,
   difficultyLabel,
   difficultyBadgeClass,
 }: {
   scenario: Scenario;
+  sequenceNumber?: number;
   difficultyLabel: string;
   difficultyBadgeClass: string;
 }) {
@@ -20,7 +22,9 @@ function ScenarioCard({
       className="block bg-white border-2 border-gray-200 rounded-lg p-4 hover:border-blue-500 hover:bg-blue-50 transition-colors shadow-sm"
     >
       <div className="flex items-start justify-between gap-2">
-        <span className="font-semibold text-gray-800 flex-1">{scenario.title}</span>
+        <span className="font-semibold text-gray-800 flex-1">
+          {sequenceNumber != null ? `${sequenceNumber}. ` : ''}{scenario.title}
+        </span>
         <span
           className={`shrink-0 text-xs font-medium px-2 py-0.5 rounded ${difficultyBadgeClass}`}
           aria-label={difficultyLabel}
@@ -52,6 +56,9 @@ export default function Home() {
         <p className="text-sm text-amber-800/90 mb-6">
           {t.betaNotice}
         </p>
+        <p className="text-lg font-bold text-blue-700 tracking-tight mb-2 pb-2 border-b-2 border-blue-200" aria-label="サービス名">
+          {t.serviceName}
+        </p>
         <h2 className="text-2xl font-bold text-gray-900 mb-2">
           {t.catchCopy}
         </h2>
@@ -82,10 +89,11 @@ export default function Home() {
               {t.scenariosEasy}
             </h4>
             <div className="space-y-3">
-              {easyScenarios.map((scenario) => (
+              {easyScenarios.map((scenario, index) => (
                 <ScenarioCard
                   key={scenario.id}
                   scenario={scenario}
+                  sequenceNumber={index + 1}
                   difficultyLabel={t.difficultyEasy}
                   difficultyBadgeClass="bg-green-100 text-green-800"
                 />
@@ -99,10 +107,11 @@ export default function Home() {
               {t.scenariosHard}
             </h4>
             <div className="space-y-3">
-              {hardScenarios.map((scenario) => (
+              {hardScenarios.map((scenario, index) => (
                 <ScenarioCard
                   key={scenario.id}
                   scenario={scenario}
+                  sequenceNumber={index + 1}
                   difficultyLabel={t.difficultyHard}
                   difficultyBadgeClass="bg-amber-100 text-amber-800"
                 />

@@ -3,15 +3,21 @@
 import { Result } from '@/types';
 import AppLink from '@/components/AppLink';
 import { useLanguage } from '@/context/LanguageContext';
+import { getScenarioSequenceNumber } from '@/data/scenarios';
 
 interface ResultDisplayProps {
   result: Result;
 }
 
 export default function ResultDisplay({ result }: ResultDisplayProps) {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const percentage = Math.round((result.score / result.totalPoints) * 100);
-  
+  const seq = getScenarioSequenceNumber(
+    result.scenario.id,
+    lang,
+    result.scenario.difficulty ?? 'easy'
+  );
+
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-4">
@@ -23,7 +29,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
         </AppLink>
       </div>
       <h1 className="text-xl font-bold text-gray-800 mb-6">
-        {result.scenario.title}
+        {seq != null ? `${seq}. ` : ''}{result.scenario.title}
       </h1>
       {/* スコア表示 */}
       <div className="bg-white rounded-lg shadow-md p-8 mb-6 text-center">
@@ -50,9 +56,9 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
           {result.scenario.dangerPoints.map((point) => {
             const isSelected = result.selectedPoints.includes(point.id);
             const isCorrect = point.isCorrect;
-            
-            // 判定結果の決定
-            let status: 'correct' | 'missed' | 'incorrect';
+
+            // 判定結果の決定（全項目を表示する）
+            let status: 'correct' | 'missed' | 'incorrect' | 'notSelectedIncorrect';
             if (isSelected && isCorrect) {
               status = 'correct';
             } else if (!isSelected && isCorrect) {
@@ -60,10 +66,9 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
             } else if (isSelected && !isCorrect) {
               status = 'incorrect';
             } else {
-              // 選択されていない、かつ正解でもない -> 正しく選択しなかった
-              status = 'correct';
+              status = 'notSelectedIncorrect'; // 不正解で未選択
             }
-            
+
             const statusConfig = {
               correct: {
                 bgColor: 'bg-green-50',
@@ -82,16 +87,17 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                 borderColor: 'border-red-500',
                 textColor: 'text-red-700',
                 label: t.incorrect
+              },
+              notSelectedIncorrect: {
+                bgColor: 'bg-gray-50',
+                borderColor: 'border-gray-400',
+                textColor: 'text-gray-700',
+                label: t.notSelectedIncorrect
               }
             };
-            
+
             const config = statusConfig[status];
-            
-            // 正しく選択しなかった正解でない項目は表示しない
-            if (status === 'correct' && !isSelected && !isCorrect) {
-              return null;
-            }
-            
+
             return (
               <div
                 key={point.id}
@@ -105,11 +111,9 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                     {point.text}
                   </p>
                 </div>
-                {(isCorrect || isSelected) && (
-                  <p className="text-gray-700 mt-2 pl-2">
-                    <span className="font-semibold">{t.explanationLabel}</span> {point.explanation}
-                  </p>
-                )}
+                <p className="text-gray-700 mt-2 pl-2">
+                  <span className="font-semibold">{t.explanationLabel}</span> {point.explanation}
+                </p>
               </div>
             );
           })}

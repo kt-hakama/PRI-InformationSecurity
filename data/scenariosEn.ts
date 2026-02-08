@@ -23,37 +23,37 @@ You are in a hurry and are about to open the attachment.
       id: 'point-001',
       text: 'The sender address is different from usual (e.g. "l" in example replaced with "1" in examp1e)',
       isCorrect: true,
-      explanation: 'A common phishing technique. The message is from a domain that mimics the real one. Attackers exploit the similarity between the digit "1" and the letter "l".'
+      explanation: 'Correct. In this scenario the sender is tanaka@examp1e-company.com while your usual contact uses tanaka@example-company.com. The domain is spoofed to look like the real one, a common phishing tactic, so selecting this as a risk is right.'
     },
     {
       id: 'point-002',
       text: 'There is a ZIP file attached',
       isCorrect: true,
-      explanation: 'ZIP files are often used to hide malware. Password-protected ZIPs in particular can be used to evade security software scanning.'
+      explanation: 'Correct. In this scenario the attachment is Invoice_Revised.zip and the password is to be sent by SMS. ZIPs and password-protected files are often used to hide malware or evade scanning, so selecting this as a risk is right.'
     },
     {
       id: 'point-003',
       text: 'The message says the password will be sent by SMS',
       isCorrect: true,
-      explanation: 'Legitimate business rarely shares passwords via SMS. Password-protected files are commonly used to bypass security checks.'
+      explanation: 'Correct. In this scenario the email says "The password will be sent to you separately by SMS." Legitimate business rarely shares passwords by SMS, and password-protected files are often used to bypass checks, so selecting this as a risk is right.'
     },
     {
       id: 'point-004',
       text: 'The word "urgent" is used to create pressure',
       isCorrect: true,
-      explanation: 'Attackers pressure recipients to skip careful verification. Be cautious of words like "urgent" or "immediate".'
+      explanation: 'Correct. In this scenario the subject is "Urgent: Invoice correction" and the body asks to act "as soon as possible." Attackers use urgency to skip verification, so selecting this as a risk is right.'
     },
     {
       id: 'point-005',
       text: 'The email is polite and looks professional',
       isCorrect: false,
-      explanation: 'Phishing emails can be polite and professional. Politeness alone does not indicate safety.'
+      explanation: 'Incorrect. Although the email is polite, politeness alone does not show it is safe. The real risks are the spoofed sender, the attachment, and the urgency; this option is not a correct risk to select.'
     },
     {
       id: 'point-006',
       text: 'It is from a vendor so it can be trusted',
       isCorrect: false,
-      explanation: 'The sender may be impersonating a vendor. Always verify the sender address and content carefully.'
+      explanation: 'Incorrect. In this scenario the sender may be impersonating a vendor and the address differs from your usual contact. You should verify sender and content; trusting it because it looks like a vendor is not a correct risk to select.'
     }
   ]
 };
@@ -75,31 +75,31 @@ You ignore the USB drive and are about to upload the edited file to the cloud an
       id: 'point-201',
       text: 'Accessing cloud storage and email over public Wi-Fi',
       isCorrect: true,
-      explanation: 'Public Wi-Fi carries eavesdropping and man-in-the-middle risks. Prefer VPN or mobile data for confidential documents.'
+      explanation: 'Correct. In this scenario you connect to the café\'s free Wi-Fi, download from cloud storage, and are about to send by email. Public Wi-Fi carries eavesdropping and man-in-the-middle risks, so selecting this as a risk is right.'
     },
     {
       id: 'point-202',
       text: 'An unknown USB device was left on the table by a stranger',
       isCorrect: true,
-      explanation: 'Malicious USB devices (e.g. malware or hardware attacks) are sometimes left for victims to plug in. Do not connect found USB devices; hand them to staff.'
+      explanation: 'Correct. In this scenario a stranger left an unknown USB drive on your table. Malicious USB devices are sometimes left for victims to use, so leaving it there is a risk and selecting this is right.'
     },
     {
       id: 'point-203',
       text: 'Sending the document from this public location',
       isCorrect: true,
-      explanation: 'Public places pose shoulder-surfing risks. Avoid handling confidential information in plain view; use a secure environment when possible.'
+      explanation: 'Correct. In this scenario you are about to upload the edited file and send it by email from the café. Public places pose shoulder-surfing risks, so selecting this as a risk is right.'
     },
     {
       id: 'point-204',
       text: 'Working from a café',
       isCorrect: false,
-      explanation: 'The location itself is less important than how you use it (Wi-Fi, devices, screen visibility).'
+      explanation: 'Incorrect. Although you are at a café, the risks come from using free Wi-Fi, the unknown USB, and handling the document in view of others—not from the café itself. This option is not a correct risk to select.'
     },
     {
       id: 'point-205',
       text: 'Using cloud storage is safe',
       isCorrect: false,
-      explanation: 'Even with cloud services, an unencrypted or untrusted Wi-Fi path can be eavesdropped.'
+      explanation: 'Incorrect. In this scenario you use cloud storage but the connection is over public Wi-Fi, so traffic can be eavesdropped. Cloud use does not make the path safe; this option is not a correct risk to select.'
     }
   ]
 };
@@ -131,49 +131,49 @@ You are wondering whether it is safe to proceed as planned.
       id: 'point-301',
       text: 'Passwords are sent by email',
       isCorrect: true,
-      explanation: 'Email is vulnerable to interception and leakage. Credentials should be delivered through a secure channel, and first-time password change should be required (Subject B: Securing IT use).'
+      explanation: 'Correct. In this scenario "Initial passwords will be sent to the responsible person by email." Email is vulnerable to interception, so credentials should not be sent this way; selecting this as a risk is right.'
     },
     {
       id: 'point-302',
       text: 'Only one administrator and two-factor authentication is optional',
       isCorrect: true,
-      explanation: 'A single administrator creates concentration of privilege and continuity risk. Optional 2FA increases the risk of unauthorized access if passwords are compromised (Subject B: Cloud security).'
+      explanation: 'Correct. In this scenario "A single administrator account is sufficient" and "two-factor authentication is optional." This increases risk if passwords are compromised; selecting this as a risk is right.'
     },
     {
       id: 'point-303',
       text: 'Data is stored in overseas data centers',
       isCorrect: true,
-      explanation: 'Personal or confidential data may be restricted or prohibited from being stored abroad by law or industry guidelines. Confirm storage location before contracting (Subject B: Information asset management).'
+      explanation: 'Correct. In this scenario "Data may be stored in overseas data centers for cost reasons." Personal or confidential data may be restricted abroad by law or guidelines; selecting this as a risk is right.'
     },
     {
       id: 'point-304',
       text: 'Customer data will be handed over on USB',
       isCorrect: true,
-      explanation: 'USB media is easy to lose or steal; without encryption and access control it can lead to data breach. Share with vendors through secure means and limit data to the minimum necessary (Subject B: Vendor management).'
+      explanation: 'Correct. In this scenario "Customer master data samples will be handed over on USB at tomorrow\'s meeting." USB is easy to lose or steal; selecting this as a risk is right.'
     },
     {
       id: 'point-305',
       text: 'The NDA will be signed after development starts',
       isCorrect: true,
-      explanation: 'An NDA (Non-Disclosure Agreement) defines obligations to keep confidential information secret and not use it for other purposes. It should be in place before sharing information; signing after disclosure leaves a gap in legal protection (Subject B: Vendor management).'
+      explanation: 'Correct. In this scenario "An NDA will be signed after development has started." The NDA should be in place before sharing information; selecting this as a risk is right.'
     },
     {
       id: 'point-306',
       text: 'Chat with no logging is used for business communication',
       isCorrect: true,
-      explanation: 'Using chat that does not keep logs for confidential or personal data leaves no audit trail. Define how vendor communications and records are managed (Subject B: Information asset management).'
+      explanation: 'Correct. In this scenario "Communication with B will continue via email and a chat app (chat does not keep logs)." No logs means no audit trail; selecting this as a risk is right.'
     },
     {
       id: 'point-307',
       text: 'Starting with a free trial saves cost',
       isCorrect: false,
-      explanation: 'What matters more is the service terms, contract, and security (e.g. data location, encryption, logging). A free trial itself is not a risk point.'
+      explanation: 'Incorrect. Although the scenario mentions a free trial, the real risks are password delivery by email, single admin, optional 2FA, overseas storage, USB handover, NDA timing, and no-log chat. A free trial itself is not a correct risk to select.'
     },
     {
       id: 'point-308',
       text: 'Cloud is safer than on-premise servers',
       isCorrect: false,
-      explanation: 'Cloud safety depends on configuration, contract, and operations. Without proper access control and encryption it can be unsafe. Evaluate whether requirements are met rather than assuming cloud is safe.'
+      explanation: 'Incorrect. The scenario involves cloud adoption, but the risks are the specific terms (password by email, 2FA optional, overseas storage, etc.), not "cloud" in general. Assuming cloud is safe is not a correct risk to select.'
     }
   ]
 };
@@ -202,43 +202,106 @@ You are wondering whether it is safe to provide the list as planned.
       id: 'point-401',
       text: 'The personal information list will be sent as an email attachment',
       isCorrect: true,
-      explanation: 'Email is vulnerable to interception, misdelivery, and forwarding. Personal data should be shared through encrypted or secure file transfer, not plain email.'
+      explanation: 'Correct. In this scenario "The list will be created in Excel and sent to C\'s contact by email attachment." Email is vulnerable to interception and misdelivery, so selecting this as a risk is right.'
     },
     {
       id: 'point-402',
       text: 'The outsourcing and confidentiality agreements are “to be signed later”',
       isCorrect: true,
-      explanation: 'Contracts (outsourcing, NDA, and personal data handling) must be in place before sharing personal information. Signing after disclosure leaves a gap in legal and procedural protection.'
+      explanation: 'Correct. In this scenario the agreements are "to be signed later." Contracts should be in place before sharing personal information; selecting this as a risk is right.'
     },
     {
       id: 'point-403',
       text: 'The list includes purchase history and other data not needed for DM distribution',
       isCorrect: true,
-      explanation: 'Personal data shared with vendors should be limited to what is necessary for the outsourced task (purpose limitation, data minimization). Including unnecessary data increases breach impact and can violate privacy principles.'
+      explanation: 'Correct. In this scenario the list will include "purchase history" ("C might use it for analysis"). Personal data should be limited to what is necessary; selecting this as a risk is right.'
     },
     {
       id: 'point-404',
       text: 'There is no agreement on return or deletion of the list after the work is done',
       isCorrect: true,
-      explanation: 'The contract or request should specify retention period, how the data will be returned or deleted, and handling after the outsourcing ends. Without this, data may remain with the vendor and increase the risk of misuse or breach.'
+      explanation: 'Correct. In this scenario "There is no agreement on returning or deleting the list after the work is done." Without this, data may remain with the vendor; selecting this as a risk is right.'
     },
     {
       id: 'point-405',
       text: 'The shared folder password is easy to guess (e.g. 1234)',
       isCorrect: true,
-      explanation: 'Storage used for personal data should have a strong, hard-to-guess password and minimal access rights. Weak passwords increase the risk of unauthorized access.'
+      explanation: 'Correct. In this scenario C says "please upload it to the shared folder (password is set to 1234)." Weak passwords increase unauthorized access risk; selecting this as a risk is right.'
     },
     {
       id: 'point-406',
       text: 'C is a long-standing vendor so they can be trusted',
       isCorrect: false,
-      explanation: 'Even with a long relationship, you still need a contract, clear scope of data sharing, and a secure transfer method before sharing personal information. Trust alone is not a substitute for proper procedures.'
+      explanation: 'Incorrect. Although there is a long-standing relationship, the risks are email attachment, contracts signed later, unnecessary data, no return/deletion agreement, and weak password. Trust alone is not a correct risk to select.'
     },
     {
       id: 'point-407',
       text: 'The list is created in Excel',
       isCorrect: false,
-      explanation: 'The main risks are how the data is transferred (email, shared folder settings), what is shared, and whether contracts are in place. Using Excel itself is not the risk.'
+      explanation: 'Incorrect. The scenario says the list is in Excel, but the risks are the transfer method (email), contract timing, scope of data, return/deletion, and password strength. Excel format itself is not a correct risk to select.'
+    }
+  ]
+};
+
+// Scenario 5: Sending electronic files to a business partner
+export const sampleScenario005En: Scenario = {
+  id: 'scenario-005',
+  difficulty: 'easy',
+  title: 'Sending electronic files to a business partner',
+  description: 'You have been asked by your manager to send the "current term estimate" to business partner B by email. Identify the information security risk points in the following scenario.',
+  situation: `
+You have been asked to send the "current term estimate" to business partner B by email.
+
+You have the following files on hand:
+・Estimate_2025Q1.xlsx … Current term estimate (prepared for B)
+・Estimate_2024Q4_InternalDraft.xlsx … Previous term estimate (contains internal comments and cost breakdown)
+
+B’s contact was previously Mr. Sato (sato@b-company.co.jp), but you received a notice last month that "the contact has changed to Mr. Yamada," and you have a note saying "Yamada yamada@b-company.co.jp." Below that note, another contact "Tamura tamura@c-company.co.jp" from a different partner C is also written.
+
+Short on time, you attached "Estimate_2025Q1.xlsx," set the subject to "[B] Current term estimate," and entered yamada@b-company.co.jp as the recipient. Before sending, a colleague said, "The file is large, so use password estimate2025 and put it in the body." You have added that password to the email body and are about to click Send.
+  `.trim(),
+  dangerPoints: [
+    {
+      id: 'point-501',
+      text: 'The file you are about to attach is "Internal draft" and may contain internal comments or cost breakdown',
+      isCorrect: false,
+      explanation: 'Incorrect. In this scenario you attached "Estimate_2025Q1.xlsx", not the internal draft, so this option does not match the situation. Selecting it as a risk is therefore wrong.'
+    },
+    {
+      id: 'point-502',
+      text: 'The note has B’s and C’s addresses close together, and you are about to send in a situation where recipient mix-up is easy',
+      isCorrect: true,
+      explanation: 'With Sato→Yamada change noted next to C’s Tamura address, recipient mix-ups are easy. Final verification of the recipient is important, so selecting this as a risk is right.'
+    },
+    {
+      id: 'point-503',
+      text: 'You are about to send the password in the same email body',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario you have added the password estimate2025 to the email body and are about to send. If the email is compromised, the password is exposed too, so selecting this as a risk is right.'
+    },
+    {
+      id: 'point-504',
+      text: 'You have not verified the attachment is the correct file for B before sending',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario you attached "Estimate_2025Q1.xlsx" but there is no mention of opening and verifying the contents. You should confirm contents before sending; selecting this as a risk is right.'
+    },
+    {
+      id: 'point-505',
+      text: 'After the contact change, you have not confirmed Yamada’s address via official communication (email or business card)',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario you only have a note about the contact change; there is no mention of confirming the address via official email or business card. Selecting this as a risk is right.'
+    },
+    {
+      id: 'point-506',
+      text: 'Sending as Excel is fine; PDF would be safer',
+      isCorrect: false,
+      explanation: 'Incorrect. In this scenario you are sending an Excel file, but the risks are content verification, recipient confirmation, and how the password is shared. Excel vs PDF is not a correct risk to select.'
+    },
+    {
+      id: 'point-507',
+      text: 'Estimates are not confidential so sending as-is is fine',
+      isCorrect: false,
+      explanation: 'Incorrect. In this scenario you are sending an estimate, which can contain confidential information. Claiming it is not confidential and can be sent as-is is not a correct risk to select.'
     }
   ]
 };
@@ -479,13 +542,85 @@ You are wondering whether to allow this reuse and the additional provision of se
   ]
 };
 
+// Scenario 5 (Challenge): Sending electronic files – recipient and delivery verification
+export const sampleScenario005HardEn: Scenario = {
+  id: 'scenario-005-hard',
+  difficulty: 'hard',
+  title: 'Sending electronic files to a business partner (Challenge)',
+  description: 'You are asked to send a "contract draft" to B’s new contact, Mr. Yamada. Internal policy is followed, but there are pitfalls in recipient and delivery. Identify the risk points.',
+  situation: `
+You have been asked to send the "contract draft" to B’s new contact, Mr. Yamada (yamada@b-company.co.jp). Internal policy states: "Send confidential files as password-protected ZIP; share the password by separate email or phone."
+
+You prepared the delivery as follows:
+・Opened the file "ContractDraft_ForB.pdf" and confirmed it only contains B’s name and contract terms.
+・Set a password (Contract2025) on the ZIP, set subject "[B] Contract draft," and entered yamada@b-company.co.jp as the recipient.
+・Sent an email saying "Password sent separately" first, then sent the ZIP attachment a few minutes later.
+
+After sending, Mr. Yamada from B replied: "yamada@b-company.co.jp was in CC. My correct address is yamada-t@b-company.co.jp (with hyphen). If it arrived, I’ll open it there." You thought "Putting it in CC was a mistake, but if it reached the right person it’s fine" and did not report to your manager or information security.
+
+Meanwhile, your note has both "B – Yamada yamada@b-company.co.jp" and "B – Yamada (other dept) yamada-t@b-company.co.jp," and past email history suggests that messages sent to yamada@ may have been received by a different person with the same name in another department.
+  `.trim(),
+  dangerPoints: [
+    {
+      id: 'point-005h-1',
+      text: 'You entered yamada@ as recipient but the correct address is yamada-t@; you may have sent the confidential file to the wrong address',
+      isCorrect: true,
+      explanation: 'With same-name, different-address contacts, confidential information can reach the wrong person. Verify the recipient with official contact (business card or email from the partner) before sending.'
+    },
+    {
+      id: 'point-005h-2',
+      text: 'You put the contact’s address in CC, mixing the use of CC (copy) with "send to recipient"',
+      isCorrect: true,
+      explanation: 'CC is for "reference copy." Using it for the main recipient blurs intent. For a single recipient, use To only.'
+    },
+    {
+      id: 'point-005h-3',
+      text: 'You sent the password in a "separate" email but shortly after to the same recipient; if the mail is compromised both could be obtained together',
+      isCorrect: true,
+      explanation: 'Even if policy is met, sending the password by the same channel at the same time is effectively "in the same envelope." A different channel (phone, another system) is safer when possible.'
+    },
+    {
+      id: 'point-005h-4',
+      text: 'After realizing the possible misdelivery, you did not report or consult your manager or information security',
+      isCorrect: true,
+      explanation: 'Leaving it unclear whether the file reached the right person can allow leakage or mix-up to spread. You should report even after the fact and take re-send or verification steps if needed.'
+    },
+    {
+      id: 'point-005h-5',
+      text: 'You assumed "if it reached the person it’s fine" without confirming that the recipient at yamada@ is really the contract contact, Mr. Yamada',
+      isCorrect: true,
+      explanation: 'The message may have gone to a same-name person in another department. Verifying who actually received it and their role is necessary for proper handling of confidential information.'
+    },
+    {
+      id: 'point-005h-6',
+      text: 'Your note has both yamada@ and yamada-t@ but you did not formally confirm which is the contact for this delivery before sending',
+      isCorrect: true,
+      explanation: 'When multiple addresses exist, identify "this delivery’s contact" through the partner’s official communication before sending.'
+    },
+    {
+      id: 'point-005h-7',
+      text: 'Sending as PDF is safer than Word',
+      isCorrect: false,
+      explanation: 'The format (PDF/Word) is not the main issue. The risks are correct recipient, how the password is shared, and verifying who received the file.'
+    },
+    {
+      id: 'point-005h-8',
+      text: 'You followed policy by sending the password separately, so there is no problem',
+      isCorrect: false,
+      explanation: 'Policy was followed, but the way you sent the password (same channel, same time) can still create risk. That is the learning point in this scenario.'
+    }
+  ]
+};
+
 export const scenariosEn: Scenario[] = [
   sampleScenarioEn,
   sampleScenario2En,
   sampleScenario3En,
   sampleScenario4En,
+  sampleScenario005En,
   sampleScenario001HardEn,
   sampleScenario002HardEn,
   sampleScenario003HardEn,
   sampleScenario004HardEn,
+  sampleScenario005HardEn,
 ];

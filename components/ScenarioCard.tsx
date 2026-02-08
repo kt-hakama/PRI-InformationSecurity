@@ -5,15 +5,16 @@ import { useLanguage } from '@/context/LanguageContext';
 
 interface ScenarioCardProps {
   scenario: Scenario;
+  sequenceNumber?: number;
 }
 
-export default function ScenarioCard({ scenario }: ScenarioCardProps) {
+export default function ScenarioCard({ scenario, sequenceNumber }: ScenarioCardProps) {
   const { t } = useLanguage();
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6 mb-6">
       <h2 className="text-2xl font-bold text-gray-800 mb-3">
-        {scenario.title}
+        {sequenceNumber != null ? `${sequenceNumber}. ` : ''}{scenario.title}
       </h2>
       <p className="text-gray-600 mb-4">
         {scenario.description}

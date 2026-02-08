@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import AppLink from '@/components/AppLink';
 import ScenarioCard from '@/components/ScenarioCard';
 import DangerPointChecklist from '@/components/DangerPointChecklist';
-import { getScenarioById } from '@/data/scenarios';
+import { getScenarioById, getScenarioSequenceNumber } from '@/data/scenarios';
 import { useLanguage } from '@/context/LanguageContext';
 import { getRelativePath } from '@/lib/relative-path';
 
@@ -71,7 +71,10 @@ export default function TrainingPageClient({ id }: { id: string }) {
           ← {t.backToTop}
         </a>
       </div>
-      <ScenarioCard scenario={scenario} />
+      <ScenarioCard
+        scenario={scenario}
+        sequenceNumber={getScenarioSequenceNumber(scenario.id, lang, scenario.difficulty ?? 'easy')}
+      />
       <DangerPointChecklist
         dangerPoints={scenario.dangerPoints}
         selectedPoints={selectedPoints}
