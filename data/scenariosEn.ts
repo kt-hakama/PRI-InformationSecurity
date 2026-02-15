@@ -97,9 +97,9 @@ You ignore the USB drive and are about to upload the edited file to the cloud an
     },
     {
       id: 'point-205',
-      text: 'Using cloud storage is safe',
+      text: 'Working using cloud storage',
       isCorrect: false,
-      explanation: 'Incorrect. In this scenario you use cloud storage but the connection is over public Wi-Fi, so traffic can be eavesdropped. Cloud use does not make the path safe; this option is not a correct risk to select.'
+      explanation: 'Incorrect. Using cloud storage itself is not dangerous. The danger is the free Wi-Fi path. In this scenario you access cloud storage over free Wi-Fi, so there is eavesdropping risk, but "working using cloud storage" itself is not a risk point to select.'
     }
   ]
 };

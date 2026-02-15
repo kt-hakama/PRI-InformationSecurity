@@ -89,14 +89,22 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                 label: t.incorrect
               },
               notSelectedIncorrect: {
-                bgColor: 'bg-gray-50',
-                borderColor: 'border-gray-400',
-                textColor: 'text-gray-700',
+                bgColor: 'bg-green-50',
+                borderColor: 'border-green-500',
+                textColor: 'text-green-700',
                 label: t.notSelectedIncorrect
               }
             };
 
             const config = statusConfig[status];
+
+            // 不正解で未選択の場合、「誤選択です」の部分を「選ばなかったのは正しい判断」に置き換えて整合性を保つ
+            let displayExplanation = point.explanation;
+            if (status === 'notSelectedIncorrect') {
+              displayExplanation = point.explanation
+                .replace(/^誤選択です。/, t.notSelectedIncorrectExplanationPrefix)
+                .replace(/^Incorrect\.\s*/, t.notSelectedIncorrectExplanationPrefix);
+            }
 
             return (
               <div
@@ -112,7 +120,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                   </p>
                 </div>
                 <p className="text-gray-700 mt-2 pl-2">
-                  <span className="font-semibold">{t.explanationLabel}</span> {point.explanation}
+                  <span className="font-semibold">{t.explanationLabel}</span> {displayExplanation}
                 </p>
               </div>
             );
