@@ -22,7 +22,7 @@ export default function DangerPointChecklist({
         {t.checkDangerPoints}
       </h3>
       <div className="space-y-3">
-        {dangerPoints.map((point) => (
+        {dangerPoints.map((point, index) => (
           <label
             key={point.id}
             className="flex items-start p-4 border rounded-lg cursor-pointer hover:bg-gray-50 transition-colors"
@@ -34,6 +34,7 @@ export default function DangerPointChecklist({
               className="mt-1 mr-3 w-5 h-5 text-blue-600"
             />
             <span className="text-gray-700 flex-1">
+              <span className="font-semibold text-gray-900 mr-2">{index + 1}.</span>
               {point.text}
             </span>
           </label>

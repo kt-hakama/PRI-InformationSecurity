@@ -53,7 +53,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
         </h3>
         
         <div className="space-y-4">
-          {result.scenario.dangerPoints.map((point) => {
+          {result.scenario.dangerPoints.map((point, index) => {
             const isSelected = result.selectedPoints.includes(point.id);
             const isCorrect = point.isCorrect;
 
@@ -99,11 +99,26 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
             const config = statusConfig[status];
 
             // 不正解で未選択の場合、「誤選択です」の部分を「選ばなかったのは正しい判断」に置き換えて整合性を保つ
+            // 見逃しの場合、「正解です」等の部分を置き換えて整合性を保つ
             let displayExplanation = point.explanation;
             if (status === 'notSelectedIncorrect') {
               displayExplanation = point.explanation
                 .replace(/^誤選択です。/, t.notSelectedIncorrectExplanationPrefix)
                 .replace(/^Incorrect\.\s*/, t.notSelectedIncorrectExplanationPrefix);
+            } else if (status === 'missed') {
+              displayExplanation = point.explanation
+                // 日本語：冒頭の置換
+                .replace(/^正解です。/, t.missedExplanationPrefix)
+                // 日本語：結びの置換（「〇〇は/としては危険ポイントとして正しく選べています」等の全パターン。補足文がある場合は途中にも出現するため$は付けない）
+                .replace(/、[^。]*危険ポイントとして正しく選べています。/, `、${t.missedExplanationSuffix}`)
+                .replace(/、[^。]*正しく選べています。/, `、${t.missedExplanationSuffix}`)
+                // 英語：冒頭の置換
+                .replace(/^Correct\.\s*/i, t.missedExplanationPrefix)
+                // 英語：結びの置換
+                .replace(/, so selecting this as a risk is right\.?$/i, `. ${t.missedExplanationSuffix}`)
+                .replace(/; selecting this as a risk is right\.?$/i, `. ${t.missedExplanationSuffix}`)
+                .replace(/ and selecting this is right\.?$/i, `. ${t.missedExplanationSuffix}`)
+                .replace(/\. Selecting this as a risk is right\.?$/i, `. ${t.missedExplanationSuffix}`);
             }
 
             return (
@@ -112,6 +127,7 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                 className={`${config.bgColor} border-l-4 ${config.borderColor} p-4 rounded`}
               >
                 <div className="flex items-start mb-2">
+                  <span className="font-semibold text-gray-900 mr-2 shrink-0">{index + 1}.</span>
                   <span className={`${config.textColor} font-bold mr-2`}>
                     {config.label}
                   </span>
@@ -120,7 +136,8 @@ export default function ResultDisplay({ result }: ResultDisplayProps) {
                   </p>
                 </div>
                 <p className="text-gray-700 mt-2 pl-2">
-                  <span className="font-semibold">{t.explanationLabel}</span> {displayExplanation}
+                  <span className="font-semibold">{t.explanationLabel}</span>{' '}
+                  {displayExplanation}
                 </p>
               </div>
             );

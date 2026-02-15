@@ -110,70 +110,96 @@ export const sampleScenario3En: Scenario = {
   title: 'Cloud service adoption and sharing data with a vendor',
   description: 'This scenario is based on the Information Security Management exam (Subject B). Identify risk points when introducing a cloud service and sharing data with an external vendor.',
   situation: `
-Your department is considering a cloud file-sharing service (proposed by vendor A) for efficiency. At the same time, you plan to outsource system changes to development company B.
+Your department's system modification project has kicked off in earnest. Internal and external members are involved, so you need to set up data sharing and how you work with the outsourced vendor.
 
-[About the cloud service (from vendor A)]
-・You can start with a free trial immediately
-・Initial passwords will be sent to the responsible person by email
-・A single administrator account is sufficient
-・Data may be stored in overseas data centers for cost reasons
-・Login uses only ID and password; two-factor authentication is optional to match your policy
+You are moving ahead with two things in parallel:
+- Outsourcing the system modifications to external developer B
+- Introducing vendor A's cloud file-sharing service for sharing data with project members and B
 
-[About sharing information with vendor B (from your manager)]
-・Customer master data samples will be handed over on USB at tomorrow’s meeting
-・An NDA will be signed after development has started
-・Communication with B will continue via email and a chat app (chat does not keep logs)
+As project lead, you are meeting with both A and B to confirm how things will run.
 
-You are wondering whether it is safe to proceed as planned.
+[From A: Cloud service introduction]
+- Free trial available; you can start using it right away
+- Initial passwords are sent to the responsible person by email
+- One administrator account is sufficient
+- Data may be stored in overseas data centers
+- Login uses only ID and password; two-factor authentication is optional
+
+This cloud service will also be used to share project materials and customer data samples with B.
+
+Your manager instructed you to provide information to B (the system modification vendor) as follows:
+- Hand over customer master sample data on a USB drive at tomorrow's meeting
+- The NDA will be signed after development has started
+- Continue communicating with B via email and chat (chat is set not to keep logs)
+
+You are preparing the cloud introduction and information handover to B while organizing the information needed to move the project forward.
   `.trim(),
   dangerPoints: [
     {
       id: 'point-301',
-      text: 'Passwords are sent by email',
+      text: 'Initial passwords are sent by email',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "Initial passwords will be sent to the responsible person by email." Email is vulnerable to interception, so credentials should not be sent this way; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "Initial passwords are sent to the responsible person by email." Email is vulnerable to interception, so credentials should not be sent this way; selecting this as a risk is right. Email travels over unencrypted paths and can be intercepted, so authentication details should be shared through more secure means such as a dedicated portal or secure chat.'
     },
     {
       id: 'point-302',
-      text: 'Only one administrator and two-factor authentication is optional',
+      text: 'Only one administrator account is used',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "A single administrator account is sufficient" and "two-factor authentication is optional." This increases risk if passwords are compromised; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "One administrator account is sufficient." A single admin increases risk if passwords are compromised or the admin is unavailable; selecting this as a risk is right. With only one admin, handling absence or incidents becomes difficult, so sharing roles across multiple people is worth considering.'
+    },
+    {
+      id: 'point-309',
+      text: 'Planning to use a cloud file-sharing service for business',
+      isCorrect: false,
+      explanation: 'Incorrect. The scenario introduces A\'s cloud file-sharing service, but the risks are not cloud use itself—they are the specific terms: password by email, optional 2FA, overseas storage, and starting use before a security review. Using a cloud service itself is not a correct risk to select.'
     },
     {
       id: 'point-303',
-      text: 'Data is stored in overseas data centers',
+      text: 'Data may be stored in overseas data centers',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "Data may be stored in overseas data centers for cost reasons." Personal or confidential data may be restricted abroad by law or guidelines; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "Data may be stored in overseas data centers." Personal or confidential data may be restricted abroad by law or guidelines; selecting this as a risk is right. Laws and industry guidelines often impose conditions on overseas storage, and data may be subject to local laws or access requests in the host country.'
     },
     {
       id: 'point-304',
-      text: 'Customer data will be handed over on USB',
+      text: 'Login uses only ID and password; two-factor authentication is optional',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "Customer master data samples will be handed over on USB at tomorrow\'s meeting." USB is easy to lose or steal; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "Login uses only ID and password; two-factor authentication is optional." Optional 2FA increases the risk of unauthorized access if passwords are compromised; selecting this as a risk is right. Requiring 2FA (e.g., SMS or an authenticator app) helps reduce the risk of unauthorized access even when a password is leaked.'
     },
     {
       id: 'point-305',
-      text: 'The NDA will be signed after development starts',
+      text: 'Starting use immediately with a free trial (before security review)',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "An NDA will be signed after development has started." The NDA should be in place before sharing information; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "Free trial available; you can start using it right away." Starting before confirming security requirements or evaluation can delay remediation of issues found later; selecting this as a risk is right. When handling customer data, it is better to complete a security assessment and review the contract before adoption.'
     },
     {
       id: 'point-306',
-      text: 'Chat with no logging is used for business communication',
+      text: 'Customer master sample data will be handed over on a USB drive',
       isCorrect: true,
-      explanation: 'Correct. In this scenario "Communication with B will continue via email and a chat app (chat does not keep logs)." No logs means no audit trail; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario "Hand over customer master sample data on a USB drive at tomorrow\'s meeting." USB drives are easy to lose or steal; selecting this as a risk is right. USB drives are small and easy to misplace, and handover leaves little trace of delivery, so using encryption or a means that retains access records is worth considering.'
+    },
+    {
+      id: 'point-311',
+      text: 'Preparing sample data for development',
+      isCorrect: false,
+      explanation: 'Incorrect. The scenario involves handing over customer master samples to B, but the risks are not preparing sample data itself—they are the method (USB handover) and timing (before NDA). Preparing sample data within the scope needed for development is a normal business need; that alone is not a correct risk to select.'
     },
     {
       id: 'point-307',
-      text: 'Starting with a free trial saves cost',
-      isCorrect: false,
-      explanation: 'Incorrect. Although the scenario mentions a free trial, the real risks are password delivery by email, single admin, optional 2FA, overseas storage, USB handover, NDA timing, and no-log chat. A free trial itself is not a correct risk to select.'
+      text: 'The NDA will be signed after development has started',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario "The NDA will be signed after development has started." The NDA should be in place before sharing confidential information; selecting this as a risk is right. Defining confidentiality and liability in the contract before disclosure makes it easier to respond legally if a leak occurs.'
     },
     {
       id: 'point-308',
-      text: 'Cloud is safer than on-premise servers',
+      text: 'The chat app is used with logging disabled',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario "chat is set not to keep logs." No logs means no audit trail for vendor communications; selecting this as a risk is right. With vendors, it is advisable to use a means that retains records of instructions and what was shared.'
+    },
+    {
+      id: 'point-310',
+      text: 'Planning to use a chat app for communication with B',
       isCorrect: false,
-      explanation: 'Incorrect. The scenario involves cloud adoption, but the risks are the specific terms (password by email, 2FA optional, overseas storage, etc.), not "cloud" in general. Assuming cloud is safe is not a correct risk to select.'
+      explanation: 'Incorrect. The scenario uses chat for communication with B, but the risk is not chat use itself—it is the no-log setting. Using chat for vendor communication with proper audit trails is fine. Using a chat app itself is not a correct risk to select.'
     }
   ]
 };
@@ -184,37 +210,33 @@ export const sampleScenario4En: Scenario = {
   title: 'Sharing a personal information list with a vendor',
   description: 'You are responsible for providing a personal information list to an outsourced vendor. Identify the information security risk points in the following scenario.',
   situation: `
-Your department will outsource direct mail (DM) distribution to vendor C. Your manager has asked you to provide C with a list of personal information for mailing.
+Your department will outsource direct mail (DM) distribution to external vendor C.
+You have a long-standing business relationship with C for printing and stuffing work, but this is the first time you will entrust them with DM distribution involving personal information.
+Your manager has asked you to provide C with a list of personal information for mailing.
 
 [Current procedure (from your manager)]
 ・The list will be created in Excel and sent to C’s contact by email attachment
-・Since you have a long-standing relationship with C, the outsourcing and confidentiality agreements are “to be signed later”
+・Since you have a long-standing relationship with C, the outsourcing and confidentiality agreements for DM distribution are “to be signed later”
 ・The list will include names, addresses, phone numbers, and purchase history (“C might use it for analysis”)
 ・There is no agreement on returning or deleting the list after the work is done
 
 [Message from C’s contact]
-・“The file is too large, so please upload it to the shared folder (password is set to 1234).”
+・“The file is too large, so please send it as a ZIP file encrypted with password '1234'.”
 
 You are wondering whether it is safe to provide the list as planned.
   `.trim(),
   dangerPoints: [
     {
-      id: 'point-401',
-      text: 'The personal information list will be sent as an email attachment',
-      isCorrect: true,
-      explanation: 'Correct. In this scenario "The list will be created in Excel and sent to C\'s contact by email attachment." Email is vulnerable to interception and misdelivery, so selecting this as a risk is right.'
-    },
-    {
-      id: 'point-402',
-      text: 'The outsourcing and confidentiality agreements are “to be signed later”',
-      isCorrect: true,
-      explanation: 'Correct. In this scenario the agreements are "to be signed later." Contracts should be in place before sharing personal information; selecting this as a risk is right.'
-    },
-    {
       id: 'point-403',
       text: 'The list includes purchase history and other data not needed for DM distribution',
       isCorrect: true,
       explanation: 'Correct. In this scenario the list will include "purchase history" ("C might use it for analysis"). Personal data should be limited to what is necessary; selecting this as a risk is right.'
+    },
+    {
+      id: 'point-406',
+      text: 'C is a long-standing vendor so they can be trusted',
+      isCorrect: false,
+      explanation: 'Incorrect. Although there is a long-standing relationship for printing and stuffing work, the risks are email attachment, contracts signed later, unnecessary data, no return/deletion agreement, and weak password. Trust alone is not a correct risk to select.'
     },
     {
       id: 'point-404',
@@ -223,22 +245,28 @@ You are wondering whether it is safe to provide the list as planned.
       explanation: 'Correct. In this scenario "There is no agreement on returning or deleting the list after the work is done." Without this, data may remain with the vendor; selecting this as a risk is right.'
     },
     {
-      id: 'point-405',
-      text: 'The shared folder password is easy to guess (e.g. 1234)',
+      id: 'point-401',
+      text: 'The personal information list will be sent as an email attachment',
       isCorrect: true,
-      explanation: 'Correct. In this scenario C says "please upload it to the shared folder (password is set to 1234)." Weak passwords increase unauthorized access risk; selecting this as a risk is right.'
-    },
-    {
-      id: 'point-406',
-      text: 'C is a long-standing vendor so they can be trusted',
-      isCorrect: false,
-      explanation: 'Incorrect. Although there is a long-standing relationship, the risks are email attachment, contracts signed later, unnecessary data, no return/deletion agreement, and weak password. Trust alone is not a correct risk to select.'
+      explanation: 'Correct. In this scenario "The list will be created in Excel and sent to C\'s contact by email attachment." Email is vulnerable to interception and misdelivery, so selecting this as a risk is right.'
     },
     {
       id: 'point-407',
       text: 'The list is created in Excel',
       isCorrect: false,
       explanation: 'Incorrect. The scenario says the list is in Excel, but the risks are the transfer method (email), contract timing, scope of data, return/deletion, and password strength. Excel format itself is not a correct risk to select.'
+    },
+    {
+      id: 'point-405',
+      text: 'The ZIP file password is easy to guess (e.g. 1234)',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario C says "please send it as a ZIP file encrypted with password \'1234\'." A weak password on a ZIP containing personal information increases the risk of unauthorized decryption; selecting this as a risk is right.'
+    },
+    {
+      id: 'point-402',
+      text: 'The outsourcing and confidentiality agreements are "to be signed later"',
+      isCorrect: true,
+      explanation: 'Correct. In this scenario the outsourcing and confidentiality agreements for DM distribution are "to be signed later." Contracts should be in place before sharing personal information; selecting this as a risk is right.'
     }
   ]
 };
@@ -253,12 +281,12 @@ export const sampleScenario005En: Scenario = {
 You have been asked to send the "current term estimate" to business partner B by email.
 
 You have the following files on hand:
-・Estimate_2025Q1.xlsx … Current term estimate (prepared for B)
-・Estimate_2024Q4_InternalDraft.xlsx … Previous term estimate (contains internal comments and cost breakdown)
+・Estimate_2025Q1.xlsx
+・Estimate_2024Q4_InternalDraft.xlsx
 
-B’s contact was previously Mr. Sato (sato@b-company.co.jp), but you received a notice last month that "the contact has changed to Mr. Yamada," and you have a note saying "Yamada yamada@b-company.co.jp." Below that note, another contact "Tamura tamura@c-company.co.jp" from a different partner C is also written.
+B’s contact was previously Mr. Sato (sato@b-company.co.jp), but you received a notice last month that "the contact has changed to Mr. Yamada." The new contact's email address was not included in that notice, and you have written "yamada@b-company.co.jp" in your memo based on your assumption. Below that note, another contact "Tamura tamura@c-company.co.jp" from a different partner C is also written.
 
-Short on time, you attached "Estimate_2025Q1.xlsx," set the subject to "[B] Current term estimate," and entered yamada@b-company.co.jp as the recipient. Before sending, a colleague said, "The file is large, so use password estimate2025 and put it in the body." You have added that password to the email body and are about to click Send.
+Short on time, you selected and attached "Estimate_2025Q1.xlsx" based on the filename alone, set the subject to "[B] Current term estimate," and entered yamada@b-company.co.jp as the recipient. Before sending, a colleague advised you, "The file is large, so you should make it a ZIP. Set the password to estimate2025 and it's fine to write it in the body." You followed that advice and added the password to the email body and are about to click Send.
   `.trim(),
   dangerPoints: [
     {
@@ -277,25 +305,25 @@ Short on time, you attached "Estimate_2025Q1.xlsx," set the subject to "[B] Curr
       id: 'point-503',
       text: 'You are about to send the password in the same email body',
       isCorrect: true,
-      explanation: 'Correct. In this scenario you have added the password estimate2025 to the email body and are about to send. If the email is compromised, the password is exposed too, so selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario a colleague advised you to set the password to estimate2025 and write it in the body, and you followed that advice. If the email is compromised, the password is exposed too, so selecting this as a risk is right.'
     },
     {
       id: 'point-504',
       text: 'You have not verified the attachment is the correct file for B before sending',
       isCorrect: true,
-      explanation: 'Correct. In this scenario you attached "Estimate_2025Q1.xlsx" but there is no mention of opening and verifying the contents. You should confirm contents before sending; selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario you selected and attached "Estimate_2025Q1.xlsx" based on the filename alone, and there is no mention of opening and verifying the contents. You should confirm contents before sending; selecting this as a risk is right.'
     },
     {
       id: 'point-505',
       text: 'After the contact change, you have not confirmed Yamada’s address via official communication (email or business card)',
       isCorrect: true,
-      explanation: 'Correct. In this scenario you only have a note about the contact change; there is no mention of confirming the address via official email or business card. Selecting this as a risk is right.'
+      explanation: 'Correct. In this scenario the new contact\'s address was not in the notice and you wrote it in your memo based on assumption; there is no mention of confirming via official email or business card. Relying on assumption or a memo risks incorrect or outdated information; selecting this as a risk is right.'
     },
     {
       id: 'point-506',
       text: 'Sending as Excel is fine; PDF would be safer',
       isCorrect: false,
-      explanation: 'Incorrect. In this scenario you are sending an Excel file, but the risks are content verification, recipient confirmation, and how the password is shared. Excel vs PDF is not a correct risk to select.'
+      explanation: 'Incorrect. In this scenario you are sending an Excel file, but the risks are content verification, recipient confirmation, and how the password is shared. Excel vs PDF is not an essential risk to identify.'
     },
     {
       id: 'point-507',
