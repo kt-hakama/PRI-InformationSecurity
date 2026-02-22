@@ -656,6 +656,10 @@ export const sampleScenario005Hard: Scenario = {
   ]
 };
 
+// 応用シナリオ（難しいシナリオ）をトップページに表示するかどうか
+// true に変更すると応用シナリオが一覧に表示される
+export const SHOW_HARD_SCENARIOS = false;
+
 // 複数のシナリオを配列として管理（日本語）
 export const scenarios: Scenario[] = [
   sampleScenario,

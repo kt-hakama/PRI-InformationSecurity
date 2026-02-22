@@ -2,7 +2,7 @@
 
 import AppLink from '@/components/AppLink';
 import { useLanguage } from '@/context/LanguageContext';
-import { getScenarios } from '@/data/scenarios';
+import { getScenarios, SHOW_HARD_SCENARIOS } from '@/data/scenarios';
 import type { Scenario } from '@/types';
 
 function ScenarioCard({
@@ -101,23 +101,25 @@ export default function Home() {
             </div>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-2">
-              <span className="inline-block w-2 h-2 rounded-full bg-amber-500" aria-hidden />
-              {t.scenariosHard}
-            </h4>
-            <div className="space-y-3">
-              {hardScenarios.map((scenario, index) => (
-                <ScenarioCard
-                  key={scenario.id}
-                  scenario={scenario}
-                  sequenceNumber={index + 1}
-                  difficultyLabel={t.difficultyHard}
-                  difficultyBadgeClass="bg-amber-100 text-amber-800"
-                />
-              ))}
+          {SHOW_HARD_SCENARIOS && (
+            <div>
+              <h4 className="text-sm font-semibold text-gray-600 mb-2 flex items-center gap-2">
+                <span className="inline-block w-2 h-2 rounded-full bg-amber-500" aria-hidden />
+                {t.scenariosHard}
+              </h4>
+              <div className="space-y-3">
+                {hardScenarios.map((scenario, index) => (
+                  <ScenarioCard
+                    key={scenario.id}
+                    scenario={scenario}
+                    sequenceNumber={index + 1}
+                    difficultyLabel={t.difficultyHard}
+                    difficultyBadgeClass="bg-amber-100 text-amber-800"
+                  />
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
 
