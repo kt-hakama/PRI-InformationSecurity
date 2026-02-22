@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build && node scripts/fix-asset-paths.js",
-    "export": "next export"
+    "export": "next export",
     "start": "next start",
     "lint": "next lint",
     "clean": "node -e \"const fs=require('fs'),path=require('path');['.next','out'].forEach(d=>{try{fs.rmSync(path.join(process.cwd(),d),{recursive:true,maxRetries:3});console.log('Removed',d)}catch(e){console.warn(d,e.message)})\""
@@ -25,4 +25,5 @@
     "typescript": "^5.0.0"
   }
 }
+
 
