@@ -5,7 +5,7 @@ export const translations = {
     siteTitle: 'プロアクティブ・リスクインサイト：情報セキュリティ危険予知トレーニング',
     footer: '© 2026 プロアクティブ・リスクインサイト：情報セキュリティ危険予知トレーニング',
     // Home
-    serviceName: 'プロアクティブ・インサイト',
+    serviceName: 'プロアクティブ・リスクインサイト',
     catchCopy: '気づく力を身につけて、リスクを事前に防ぐ',
     subCopy: 'プロアクティブ・リスクインサイトは、セキュリティリスクを事前に予見し、より安全な判断をする力を養うプラットフォームです。',
     welcome: 'ようこそ',
@@ -57,7 +57,7 @@ export const translations = {
   en: {
     siteTitle: 'Proactive Risk Insight - Risk Foresight Training (RFT) for Information Security',
     footer: '© 2026 Proactive Risk Insight - Risk Foresight Training (RFT) for Information Security',
-    serviceName: 'Proactive Insight',
+    serviceName: 'Proactive Risk Insight',
     catchCopy: 'See Risks Before They Happen.',
     subCopy: 'Proactive Risk Insight is a platform that trains your ability to foresee security risks and make safer decisions.',
     welcome: 'Welcome',
